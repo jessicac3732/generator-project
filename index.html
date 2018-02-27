@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>generator-project</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"></script>
+   <script>
+       $(function(){
+           $('button').click(function(){
+                var age = $("#age").val();
+                var title = "Congratulations you have been alive for " + age + "."
+                $('h1').html(title);
+            
+           });
+       
+          
+           
+       });
+       
+       
+       
+   </script>
+ 
+
+  </head>
+  <body>
+    Do you feel happy today?
+    <input type = 'radio' name = 'answer' value = 'YES'> Yes 
+    <input type = 'radio' name = 'answer' value = 'NO'> No <br>
+    What month is your birthday in? <input id = "month"><br>
+    How old are you? <input id = 'age'><br>
+    <input class = 'button' type = 'submit' value = 'Submit'>
+ 
+    <h1></h1>
+    <p></p>
+    
+  </body>
+</html>
