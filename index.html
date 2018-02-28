@@ -7,11 +7,70 @@
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script>
        $(function(){
-           $('button').click(function(){
+           $('.button').click(function(){
+                $('div').css('width', '100%').css('text-align', 'center');
                 var age = $("#age").val();
-                var title = "Congratulations you have been alive for " + age + "."
+                var month = $('#month').val();
+                var feel = $('input[name=answer]:checked').val();
+               
+                var title = "Congratulations you have been alive for " + age + " years." ;
                 $('h1').html(title);
-            
+                
+                var kid = "first";
+                var teen = "middle";
+                var youngAdult = "second middle"
+                var old = "end"
+                
+                var positive = "yay";
+                var morePositive = "no"
+                
+                if (age >= 0 && age <= 12)
+                {
+                  $('ageQuote').html(kid);
+                }
+                else if (age>=13 && age <=19)
+                {
+                  $('ageQuote').html(teen);
+                }
+                else if (age>=20 && age <=65)
+                {
+                  $('ageQuote').html(youngAdult);
+                }
+                else if (age>=66 && age)
+                {
+                  $('ageQuote').html(old);
+                }
+                
+                if(feel == "YES")
+                {
+                  $('feelQuote').html(positive);
+                }
+                else{
+                  $('feelQuote').html(morePositive);
+                }
+                if(month == 'December'.toLowerCase() || month == 'January'.toLowerCase())
+                {
+                  $('div').css('background-color', 'blue');
+                }
+                else if(month == 'February'.toLowerCase() || month == 'April'.toLowerCase())
+                {
+                   $('div').css('background-color', 'pink');
+                }
+                else if (month == 'March'.toLowerCase() || month == 'May'.toLowerCase())
+                {
+                   $('div').css('background-color', 'green');
+                }
+                else if (month == 'June'.toLowerCase() || month == 'July'.toLowerCase())
+                {
+                   $('div').css('background-color', 'yellow');
+                }
+                else if(month == "October".toLowerCase() || month == 'August')
+                {
+                  $('div').css('background-color', 'orange');
+                }
+                else{
+                   $('div').css('background-color', 'brown');
+                }
            });
        
           
@@ -25,6 +84,7 @@
 
   </head>
   <body>
+    
     Do you feel happy today?
     <input type = 'radio' name = 'answer' value = 'YES'> Yes 
     <input type = 'radio' name = 'answer' value = 'NO'> No <br>
@@ -32,8 +92,10 @@
     How old are you? <input id = 'age'><br>
     <input class = 'button' type = 'submit' value = 'Submit'>
  
-    <h1></h1>
-    <p></p>
-    
+    <div>
+      <h1></h1>
+      <p id = 'ageQuote'></p>
+      <p id = 'feelQuote'></p>
+    </div>
   </body>
 </html>
