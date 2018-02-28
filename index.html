@@ -8,7 +8,8 @@
    <script>
        $(function(){
            $('.button').click(function(){
-                $('div').css('width', '100%').css('text-align', 'center');
+                $('div').css('width', '100%').css('text-align', 'center').css('color', 'white');
+                $('img').css('width', '10%')
                 var age = $("#age").val();
                 var month = $('#month').val();
                 var feel = $('input[name=answer]:checked').val();
@@ -16,38 +17,41 @@
                 var title = "Congratulations you have been alive for " + age + " years." ;
                 $('h1').html(title);
                 
-                var kid = "first";
-                var teen = "middle";
-                var youngAdult = "second middle"
-                var old = "end"
+                var kid = "“You are braver than you believe, stronger than you seem and smarter than you think.” -Christopher Robin";
+                var teen = "“Happiness does not depend on what happens outside of you, but what happens inside you.”";
+                var youngAdult = "“Do what makes you happy … Be with those who make you smile … Laugh as much as you breathe … Love as long as you live.”"
+                var old = "“Let us never know what old age is. Let us know the happiness time brings, not count the year.” -Ausonius "
                 
-                var positive = "yay";
-                var morePositive = "no"
+                var positive = "“The more you give away the happier you become.”";
+                var morePositive = "“Sometimes good things fall apart, so better things can fall together.” -Marilyn Monroe"
                 
                 if (age >= 0 && age <= 12)
                 {
-                  $('ageQuote').html(kid);
+                  $('#ageQuote').html(kid);
                 }
                 else if (age>=13 && age <=19)
                 {
-                  $('ageQuote').html(teen);
+                  $('#ageQuote').html(teen);
                 }
                 else if (age>=20 && age <=65)
                 {
-                  $('ageQuote').html(youngAdult);
+                  $('#ageQuote').html(youngAdult);
                 }
                 else if (age>=66 && age)
                 {
-                  $('ageQuote').html(old);
+                  $('#ageQuote').html(old);
                 }
+                
                 
                 if(feel == "YES")
                 {
-                  $('feelQuote').html(positive);
+                  $('#feelQuote').html(positive);
                 }
                 else{
-                  $('feelQuote').html(morePositive);
+                  $('#feelQuote').html(morePositive);
                 }
+                
+                
                 if(month == 'December'.toLowerCase() || month == 'January'.toLowerCase())
                 {
                   $('div').css('background-color', 'blue');
@@ -62,14 +66,17 @@
                 }
                 else if (month == 'June'.toLowerCase() || month == 'July'.toLowerCase())
                 {
-                   $('div').css('background-color', 'yellow');
+                   $('div').css('background-color', 'yellow').css('color', 'black');
                 }
-                else if(month == "October".toLowerCase() || month == 'August')
+                else if(month == 'October'.toLowerCase() || month == 'August')
                 {
                   $('div').css('background-color', 'orange');
                 }
-                else{
+                else if (month == 'September'.toLowerCase() || month == 'November'.toLowerCase()){
                    $('div').css('background-color', 'brown');
+                }
+                else{
+                  $('div').css('background-color', 'black');
                 }
            });
        
@@ -91,6 +98,8 @@
     What month is your birthday in? <input id = "month"><br>
     How old are you? <input id = 'age'><br>
     <input class = 'button' type = 'submit' value = 'Submit'>
+    
+     <img src = 'banner-background.png'>
  
     <div>
       <h1></h1>
