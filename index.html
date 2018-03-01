@@ -7,16 +7,18 @@
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Courgette|Orbitron" rel="stylesheet">
    <script>
-       $(function(){
+       $(document).ready(function(){
            $('.button').click(function(){
                 $('#questions').slideUp('slow');
                 $('#content').css('width', '100%').css('text-align', 'center').css('color', 'white').css('font-family', 'Courgette');
                 var age = $("#age").val();
                 var month = $('#month').val().toLowerCase();
                 var feel = $('input[name=answer]:checked').val();
-               
                 var title = "Congratulations you have been alive for " + age + " years." ;
                 $('h1').html(title).css('font-family', 'Orbitron');
+                $('h1').css({
+                background:"(linear(#FFFF7F, #3774c9)" 
+                });
                 
                 var kid = "“You are braver than you believe, stronger than you seem and smarter than you think.” -Christopher Robin";
                 var teen = "“Happiness does not depend on what happens outside of you, but what happens inside you.”";
@@ -107,9 +109,8 @@
     How old are you? <input id = 'age'><br>
     <input class = 'button' type = 'submit' value = 'Submit'>
  </div>
+ <h1></h1>
     <div id = content>
-      <br>
-      <h1></h1>
       <br>
       <p id = 'ageQuote'></p>
       <p id = 'feelQuote'></p>
