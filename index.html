@@ -5,76 +5,91 @@
     <title>generator-project</title>
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Orbitron" rel="stylesheet">
    <script>
        $(function(){
            $('.button').click(function(){
-                $('div').css('width', '100%').css('text-align', 'center');
+                $('#questions').slideUp('slow');
+                $('#content').css('width', '100%').css('text-align', 'center').css('color', 'white').css('font-family', 'Courgette');
                 var age = $("#age").val();
-                var month = $('#month').val();
+                var month = $('#month').val().toLowerCase();
                 var feel = $('input[name=answer]:checked').val();
                
                 var title = "Congratulations you have been alive for " + age + " years." ;
-                $('h1').html(title);
+                $('h1').html(title).css('font-family', 'Orbitron');
                 
-                var kid = "first";
-                var teen = "middle";
-                var youngAdult = "second middle"
-                var old = "end"
+                var kid = "“You are braver than you believe, stronger than you seem and smarter than you think.” -Christopher Robin";
+                var teen = "“Happiness does not depend on what happens outside of you, but what happens inside you.”";
+                var youngAdult = "“Do what makes you happy … Be with those who make you smile … Laugh as much as you breathe … Love as long as you live.”"
+                var old = "“Let us never know what old age is. Let us know the happiness time brings, not count the year.” -Ausonius "
                 
-                var positive = "yay";
-                var morePositive = "no"
+                var positive = "“The more you give away the happier you become.”";
+                var morePositive = "“Sometimes good things fall apart, so better things can fall together.” -Marilyn Monroe"
                 
-                if (age >= 0 && age <= 12)
+                if (age > 0 && age <= 12)
                 {
-                  $('ageQuote').html(kid);
+                  $('#ageQuote').html(kid).css('font-size', '20px');
                 }
                 else if (age>=13 && age <=19)
                 {
-                  $('ageQuote').html(teen);
+                  $('#ageQuote').html(teen).css('font-size', '25px');
                 }
                 else if (age>=20 && age <=65)
                 {
-                  $('ageQuote').html(youngAdult);
+                  $('#ageQuote').html(youngAdult).css('font-size', '30px');
                 }
                 else if (age>=66 && age)
                 {
-                  $('ageQuote').html(old);
+                  $('#ageQuote').html(old).css('font-size', '35px');
                 }
                 
                 if(feel == "YES")
                 {
-                  $('feelQuote').html(positive);
+                  $('#feelQuote').html(positive).css('font-size', '20px');
+                }
+                else if (feel == 'NO'){
+                  $('#feelQuote').html(morePositive).css('font-size', '20px');
+                }
+                
+                
+                if(month == 'december' || month == 'january')
+                {
+                  $('#content').css('background-color', 'blue');
+                }
+                else if(month == 'february' || month == 'april')
+                {
+                   $('#content').css('background-color', 'pink');
+                }
+                else if (month == 'march' || month == 'may')
+                {
+                   $('#content').css('background-color', 'green');
+                }
+                else if (month == 'june' || month == 'july')
+                {
+                   $('#content').css('background-color', 'yellow').css('color', 'black');
+                }
+                else if(month == "october" || month == 'august')
+                {
+                  $('#content').css('background-color', 'orange');
+                }
+                else if(month == "september" || month == 'november'){
+                   $('#content').css('background-color', 'brown');
                 }
                 else{
-                  $('feelQuote').html(morePositive);
-                }
-                if(month == 'December'.toLowerCase() || month == 'January'.toLowerCase())
-                {
-                  $('div').css('background-color', 'blue');
-                }
-                else if(month == 'February'.toLowerCase() || month == 'April'.toLowerCase())
-                {
-                   $('div').css('background-color', 'pink');
-                }
-                else if (month == 'March'.toLowerCase() || month == 'May'.toLowerCase())
-                {
-                   $('div').css('background-color', 'green');
-                }
-                else if (month == 'June'.toLowerCase() || month == 'July'.toLowerCase())
-                {
-                   $('div').css('background-color', 'yellow');
-                }
-                else if(month == "October".toLowerCase() || month == 'August')
-                {
-                  $('div').css('background-color', 'orange');
-                }
-                else{
-                   $('div').css('background-color', 'brown');
+                  $('#content').css('background-color', 'black');
                 }
            });
-       
           
-           
+          $('#content').hover(
+            function(){
+            $(this).css('font-family','Orbitron');
+            },
+            function(){
+            $(this).css('font-family', 'Courgette');
+            }
+          );
+          
+      
        });
        
        
@@ -84,19 +99,21 @@
 
   </head>
   <body>
-    
+  <div id = questions>
     Do you feel happy today?
     <input type = 'radio' name = 'answer' value = 'YES'> Yes 
     <input type = 'radio' name = 'answer' value = 'NO'> No <br>
     What month is your birthday in? <input id = "month"><br>
     How old are you? <input id = 'age'><br>
     <input class = 'button' type = 'submit' value = 'Submit'>
- 
-    <div>
-      <img src = "banner-background.png">
+ </div>
+    <div id = content>
+      <br>
       <h1></h1>
+      <br>
       <p id = 'ageQuote'></p>
       <p id = 'feelQuote'></p>
+      <br>
     </div>
   </body>
 </html>
