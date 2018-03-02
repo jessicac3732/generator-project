@@ -5,19 +5,19 @@
     <title>generator-project</title>
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Courgette|Orbitron" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Cinzel" rel="stylesheet">
    <script>
        $(document).ready(function(){
            $('.button').click(function(){
                 $('#questions').slideUp('slow');
-                $('#content').css('width', '100%').css('text-align', 'center').css('color', 'white').css('font-family', 'Courgette');
+                $('#content').css('height', '100%').css('text-align', 'center').css('color', 'white').css('font-family', 'Courgette');
                 var age = $("#age").val();
                 var month = $('#month').val().toLowerCase();
                 var feel = $('input[name=answer]:checked').val();
                 var title = "Congratulations you have been alive for " + age + " years." ;
-                $('h1').html(title).css('font-family', 'Orbitron');
+                $('h1').html(title).css('font-family', 'Cinzel');
                 $('h1').css({
-                background:"(linear(#FFFF7F, #3774c9)" 
+                background: "-webkit-gradient(linear, left top, left bottom, from(#191970), to(#b76e79))" 
                 });
                 
                 var kid = "“You are braver than you believe, stronger than you seem and smarter than you think.” -Christopher Robin";
@@ -53,29 +53,29 @@
                   $('#feelQuote').html(morePositive).css('font-size', '20px');
                 }
                 
-                
                 if(month == 'december' || month == 'january')
                 {
                   $('#content').css('background-color', 'blue');
                 }
                 else if(month == 'february' || month == 'april')
                 {
-                   $('#content').css('background-color', 'pink');
+                   $('#content').css('background-color', '#F487F1');
                 }
                 else if (month == 'march' || month == 'may')
                 {
-                   $('#content').css('background-color', 'green');
+                   $('#content').css('background-color', '#27D752');
                 }
                 else if (month == 'june' || month == 'july')
                 {
-                   $('#content').css('background-color', 'yellow').css('color', 'black');
+                   $('#content').css('background-color', '#FCF958');
+                   $('p').css('color', 'black');
                 }
                 else if(month == "october" || month == 'august')
                 {
-                  $('#content').css('background-color', 'orange');
+                  $('#content').css('background-color', '#FFCA33');
                 }
                 else if(month == "september" || month == 'november'){
-                   $('#content').css('background-color', 'brown');
+                   $('#content').css('background-color', '#CA951A');
                 }
                 else{
                   $('#content').css('background-color', 'black');
@@ -84,7 +84,7 @@
           
           $('#content').hover(
             function(){
-            $(this).css('font-family','Orbitron');
+            $(this).css('font-family','arial');
             },
             function(){
             $(this).css('font-family', 'Courgette');
@@ -109,8 +109,10 @@
     How old are you? <input id = 'age'><br>
     <input class = 'button' type = 'submit' value = 'Submit'>
  </div>
- <h1></h1>
+ 
     <div id = content>
+      <br>
+      <h1></h1>
       <br>
       <p id = 'ageQuote'></p>
       <p id = 'feelQuote'></p>
